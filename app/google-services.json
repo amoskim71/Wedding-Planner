@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "266477118544",
+    "firebase_url": "https://mercy-weds-edwin.firebaseio.com",
+    "project_id": "mercy-weds-edwin",
+    "storage_bucket": "mercy-weds-edwin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:266477118544:android:161234d2a896ca79",
+        "android_client_info": {
+          "package_name": "com.tony.wedding"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "266477118544-qs6sablbc8m8545lpkkg9cin3gvu5u7l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tony.wedding",
+            "certificate_hash": "857a78e63bf46ffd988ddf6726ed54c6f57f40e6"
+          }
+        },
+        {
+          "client_id": "266477118544-j39oibr6n7438l0lshtts8g335ivjjsv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNeuWCTQ6N6dUZtJ1TlJ1oo1HChoYXQ5k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "266477118544-j39oibr6n7438l0lshtts8g335ivjjsv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "266477118544-tue7t37ju5tecn6bn7fb12orl8lc67ev.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.tinashe.guestlist"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="title_options">
+        <item>Mr.</item>
+        <item>Ms.</item>
+        <item>Miss</item>
+        <item>Mrs.</item>
+        <item>Dr.</item>
+    </string-array>
+
+    <string-array name="admin_list">
+        <item>tonynmaina@gmail.com</item>
+        <item>mercykfaith@gmail.com</item>
+        <item>edwinonwonga@gmail.com</item>
+        <item>rachaelkemuma36@gmail.com</item>
+    </string-array>
+</resources>
