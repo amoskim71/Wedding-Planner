@@ -1,5 +1,6 @@
 package com.tony.wedding.callbacks;
 
+import com.tony.wedding.model.Couple;
 import com.tony.wedding.model.Feed;
 import com.tony.wedding.model.Guest;
 import com.tony.wedding.model.Table;
@@ -22,6 +23,8 @@ public interface MainController {
     List<Table> getTablesList();
 
     List<Feed> getFeedList();
+
+    List<Couple> getCoupleList();
 
 
     void readGuestList();
@@ -47,4 +50,7 @@ public interface MainController {
     void addFeed(Feed feed);
 
     void deleteFeed(Feed feed);
+
+    void readCoupleList();
+
 }

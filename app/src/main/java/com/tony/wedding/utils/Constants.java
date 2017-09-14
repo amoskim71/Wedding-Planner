@@ -15,6 +15,7 @@ public class Constants {
     public static final String FIREBASE_LOCATION_GUESTS = "guestList";
     public static final String FIREBASE_LOCATION_TABLES = "tableList";
     public static final String FIREBASE_LOCATION_FEED = "feedList";
+    public static final String FIREBASE_LOCATION_COUPLE = "couple";
 
 
 

@@ -8,6 +8,7 @@ import android.util.SparseArray;
 import android.view.ViewGroup;
 
 import com.tony.wedding.R;
+import com.tony.wedding.ui.fragments.CoupleListFragment;
 import com.tony.wedding.ui.fragments.FeedLisFragment;
 import com.tony.wedding.ui.fragments.GuestListFragment;
 import com.tony.wedding.ui.fragments.TablesFragment;
@@ -41,11 +42,11 @@ public class TabsFragmentPagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return new GuestListFragment();
+                return new CoupleListFragment();
             case 1:
-                return new GuestListFragment();
+                return new FeedLisFragment();
             case 2:
-                return new GuestListFragment();
+                return new FeedLisFragment();
             case 3:
                 return new GuestListFragment();
             case 4:

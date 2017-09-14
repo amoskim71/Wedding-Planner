@@ -45,12 +45,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.tony.wedding.R;
 import com.tony.wedding.callbacks.MainController;
+import com.tony.wedding.model.Couple;
 import com.tony.wedding.model.Feed;
 import com.tony.wedding.model.Guest;
 import com.tony.wedding.model.Table;
 import com.tony.wedding.ui.adapters.TabsFragmentPagerAdapter;
 import com.tony.wedding.ui.adapters.ViewFilterListAdapter;
-import com.tony.wedding.ui.fragments.CoupleFragment;
+import com.tony.wedding.ui.fragments.CoupleListFragment;
 import com.tony.wedding.ui.fragments.FeedLisFragment;
 import com.tony.wedding.ui.fragments.GuestListFragment;
 import com.tony.wedding.ui.fragments.TablesFragment;
@@ -108,6 +109,7 @@ public class MainActivity extends BaseActivity implements MainController, ViewFi
     private List<Guest> mGuestList;
     private List<Table> mTableList;
     private List<Feed> mFeedList;
+    private List<Couple> mCoupleList;
 
     private boolean permissionGranted = false;
 
@@ -265,6 +267,7 @@ public class MainActivity extends BaseActivity implements MainController, ViewFi
         readGuestList();
         readTableList();
         readFeedList();
+        readCoupleList();
     }
 
     private void collapseToolbar() {
@@ -429,6 +432,11 @@ public class MainActivity extends BaseActivity implements MainController, ViewFi
     }
 
     @Override
+    public List<Couple> getCoupleList() {
+        return mCoupleList;
+    }
+
+    @Override
     public void readGuestList() {
         DatabaseReference databaseRef = mDatabase.getReference(Constants.FIREBASE_LOCATION_GUESTS);
         databaseRef.addValueEventListener(new ValueEventListener() {
@@ -475,8 +483,8 @@ public class MainActivity extends BaseActivity implements MainController, ViewFi
     }
 
     @Nullable
-    private CoupleFragment getCoupleFragment() {
-        return (CoupleFragment) mTabAdapter.getRegisteredFragment(0);
+    private CoupleListFragment getCoupleFragment() {
+        return (CoupleListFragment) mTabAdapter.getRegisteredFragment(0);
     }
     @Nullable
     private GuestListFragment getGuestFragment() {
@@ -601,7 +609,9 @@ public class MainActivity extends BaseActivity implements MainController, ViewFi
                 }
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Log.v("Mydata1", String.valueOf(snapshot));
                     Feed feed = snapshot.getValue(Feed.class);
+                    Log.v("Mydata2", String.valueOf(feed));
                     feed.setKey(snapshot.getKey());
                     mFeedList.add(feed);
                 }
@@ -610,6 +620,42 @@ public class MainActivity extends BaseActivity implements MainController, ViewFi
 
                 if (getFeedFragment() != null) {
                     getFeedFragment().setFeedList(mFeedList);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError firebaseError) {
+
+            }
+        });
+    }
+
+    @Override
+    public void readCoupleList() {
+        DatabaseReference databaseRef = mDatabase.getReference(Constants.FIREBASE_LOCATION_COUPLE);
+        databaseRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                mCoupleList = new ArrayList<>();
+
+                if (dataSnapshot.getChildrenCount() == 0) {
+                    if (getCoupleFragment() != null) {
+                        getCoupleFragment().showEmptyView();
+                    }
+                    return;
+                }
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Log.v("Mydata", String.valueOf(snapshot));
+                    Couple feed = snapshot.getValue(Couple.class);
+//                    feed.setKey(snapshot.getKey());
+                    mCoupleList.add(feed);
+                }
+
+                Collections.sort(mCoupleList);
+
+                if (getCoupleFragment() != null) {
+                    getCoupleFragment().setCoupleList(mCoupleList);
                 }
             }
 
